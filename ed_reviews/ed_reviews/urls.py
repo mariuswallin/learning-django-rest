@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-# bruk versioning i tilfelle du oppdaterer v1
+# bruker v1 i tilfelle oppgradering i fremtiden
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls',
-                               namespace='rest_framework')),
-    url(r'^api/v1/courses/', include('courses.urls', namespace='courses')),
+    url(r'^api-auth/',
+        include('rest_framework.urls',
+                namespace='rest_framework')),
+    url(r'^api/v1/courses/',
+        include('courses.urls',
+                namespace='courses')),
 ]
